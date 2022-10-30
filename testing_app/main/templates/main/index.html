@@ -1,0 +1,30 @@
+{% extends 'main/base.html'  %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if projects %}
+    <h1>Проекты</h1>
+        {% for el in projects %}
+        <div class="alert alert-info mt-2">
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.description }}</p>
+            <div class="container">
+                <button class="btn btn-outline-primary me-2">Открыть</button>
+                <button class="btn btn-outline-primary me-2">Удалить</button>
+            </div>
+        </div>
+    {% endfor %}
+    <form action="{% url 'create' %}">
+    <input class="btn btn-primary mt-3 me-2" type="submit" value="Создать проект" />
+    </form>
+    {% else %}
+        <h1>Проектов нет:(</h1>
+        <h2>Не беда. Создайте свой первый проект!</h2>
+    <form action="{% url 'create' %}">
+    <input class="btn btn-primary mt-3 me-2" type="submit" value="Создать проект" />
+    </form>
+    {% endif %}
+{% endblock %}

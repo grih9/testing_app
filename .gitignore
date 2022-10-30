@@ -1,0 +1,5 @@
+.idea/
+testing_app/main/migrations/__pycache__/
+testing_app/testing_app/__pycache__/
+testing_app/main/__pycache__/
+testing_app/db.sqlite3
